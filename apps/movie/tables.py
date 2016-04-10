@@ -3,6 +3,7 @@ from apps.movie.models import Movie
 
 
 class MovieTable(tables.Table):
+
     class Meta:
         model = Movie
         per_page = 25

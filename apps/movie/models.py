@@ -9,10 +9,10 @@ class Movie(models.Model):
     director = models.ForeignKey("Director", on_delete=models.SET_NULL, related_name='movie_director', null=True, blank=True)
 
     def __unicode__(self):
-        return str(self.pk) + ":" + self.name + "," + self.director.name
+        return str(self.pk) + ":" + self.name + "," + self.director
 
 class Director(models.Model):
-    name = models.CharField(max_length=255, help_text="Name of the film Director")
+    director_name = models.CharField(max_length=255, help_text="Name of the film Director")
 
     def __unicode__(self):
-        return self.name
+        return self.director_name

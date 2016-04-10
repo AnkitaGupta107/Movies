@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^movies/$', view_movies, name='view_movies'),
+    url(r'^movie/add/$', add_movies, name='add_movies'),
+    url(r'^movie/(?P<movie_id>[-\w]+)/edit/$', edit_movies, name='edit_movies'),
 )

@@ -1,23 +1,11 @@
+{% extends 'base.html' %}
 {% load render_table from django_tables2 %}
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Movies</title>
-    <link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
+{% block container %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="panel">
-                    Movies
-                </h3>
+                <h3 class="panel">Movies</h3>
+                <h4 style="text-align: right">Hi, {{ request.user }}</h4>
             </div>
         </div>
         <div class="row">
@@ -27,6 +15,11 @@
                         <h3 class="panel-title">
                             <i class="fa fa-cogs"></i>&nbsp;Movies
                         </h3>
+                        <div style="text-align: right">
+                            {% if request.user.is_superuser %}
+                                <button type="button" onclick="location.href='{% url "add_movies" %}'" class="btn btn-primary btn-sm">Add</button>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -63,5 +56,18 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
+{% block extra_scripts %}
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            var is_superuser = "{{ request.user.is_superuser }}";
+
+            if (is_superuser == 'True') {
+                var id = $('.id:not(:first)');
+                id.each(function (index, value) {
+                    $(this).html('<a href="/movie/' + $(this).html() + '/edit/">'+$(this).html()+'</a>');
+                });
+            }
+        });
+    </script>
+{% endblock %}
