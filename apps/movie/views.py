@@ -11,6 +11,13 @@ from utils.general_methods import get_json_response
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def view_movies(request, *args, **kwargs):
+    '''
+    View movies irrespective of the user type
+    :param request:
+    :param args:
+    :param kwargs:
+    :return:
+    '''
     template = 'show_movies.html'
 
     filter_dict = dict()
@@ -29,6 +36,15 @@ def view_movies(request, *args, **kwargs):
 @api_view(['GET', 'POST'])
 @permission_classes((IsAdminUser, ))
 def add_movies(request, *args, **kwargs):
+    '''
+    URL : movie/add/
+    Add new movies.
+    Only a Superuser(Admin) can add movies.
+    :param request:
+    :param args:
+    :param kwargs:
+    :return:
+    '''
     template = 'add_movie.html'
 
     if request.method == 'GET':
@@ -54,6 +70,16 @@ def add_movies(request, *args, **kwargs):
 @api_view(['GET', 'POST'])
 @permission_classes((IsAdminUser,))
 def edit_movies(request, *args, **kwargs):
+    '''
+    URL : /movie/<movie_id>/edit/
+    Update a movie details.
+    Delete a movie using ajax call.
+    Only a Superuser(Admin) can update/delete movies.
+    :param request:
+    :param args:
+    :param kwargs:
+    :return:
+    '''
     template = 'edit_movie.html'
     movie_pk = kwargs.get('movie_id')
     movie = Movie.objects.get(pk=int(movie_pk))
