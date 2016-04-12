@@ -1,1 +1,0 @@
-web: bundle exec python ShopSenseMovie/manage.py runserver -p $PORT

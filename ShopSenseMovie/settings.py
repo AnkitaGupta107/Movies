@@ -13,8 +13,7 @@ import os
 from os.path import dirname, abspath
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DJANGO_ROOT = os.environ.get('DJANGO_ROOT', dirname(dirname(dirname(abspath(__file__)))))
-
+DJANGO_ROOT = os.environ.get('DJANGO_ROOT', dirname(dirname(abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/

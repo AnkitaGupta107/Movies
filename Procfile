@@ -1,0 +1,1 @@
+web: gunicorn ShopSenseMovie.wsgi --log-file -
