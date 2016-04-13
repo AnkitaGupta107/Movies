@@ -62,12 +62,12 @@ WSGI_APPLICATION = 'ShopSenseMovie.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'movie',
-        'USER': 'movie',
-        'PASSWORD': 'movie',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'movies',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 

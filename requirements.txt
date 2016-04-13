@@ -5,6 +5,10 @@ django-tables2-reports==0.0.9
 djangorestframework==3.3.3
 gunicorn==19.4.5
 MySQL-python==1.2.5
+psycopg2==2.6.1
+py-mysql2pgsql==0.1.5
+PyYAML==3.11
 six==1.10.0
 South==1.0
+termcolor==1.1.0
 wheel==0.24.0
