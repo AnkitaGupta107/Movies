@@ -2,3 +2,4 @@
 *.pyc
 /shopsense
 .idea/
+ShopSenseMovie/local_settings.py

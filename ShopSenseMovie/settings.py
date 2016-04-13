@@ -22,12 +22,11 @@ DJANGO_ROOT = os.environ.get('DJANGO_ROOT', dirname(dirname(abspath(__file__))))
 SECRET_KEY = 'oq7qju_04yevkg0mgu^7+b!2a%)fy3!q_n-)9+c5iu+9s26taz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -59,17 +58,18 @@ WSGI_APPLICATION = 'ShopSenseMovie.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+import dj_database_url
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'movies',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
     }
 }
+
+try:
+  from local_settings import *
+except Exception as e:
+  pass
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
