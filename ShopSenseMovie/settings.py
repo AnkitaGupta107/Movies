@@ -22,7 +22,7 @@ DJANGO_ROOT = os.environ.get('DJANGO_ROOT', dirname(dirname(abspath(__file__))))
 SECRET_KEY = 'oq7qju_04yevkg0mgu^7+b!2a%)fy3!q_n-)9+c5iu+9s26taz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
