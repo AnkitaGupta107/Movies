@@ -60,11 +60,13 @@ WSGI_APPLICATION = 'ShopSenseMovie.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 import dj_database_url
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-    }
-}
+DATABASES = {'default': dj_database_url.config()}
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#     }
+# }
 
 try:
   from local_settings import *
