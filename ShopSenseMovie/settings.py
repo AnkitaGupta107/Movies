@@ -94,6 +94,23 @@ STATIC_ROOT = os.path.join(DJANGO_ROOT, 'final_static')
 
 STATIC_URL = '/static/'
 
+# URL prefix for admin assets files -- CSS, JavaScript and images.
+ADMIN_MEDIA_PREFIX = '/assets/admin/'
+
+# Additional locations of assets files.
+STATICFILES_DIRS = (
+    os.path.join(DJANGO_ROOT, 'static'),
+    os.path.join(DJANGO_ROOT, 'templates'),
+)
+
+# List of finder classes that know how to find assets files in various
+# locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
 
@@ -106,3 +123,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request'
 )
+
+
+MEDIA_ROOT = os.path.join(DJANGO_ROOT, 'media')
+
+# URL that handles the media served from MEDIA_ROOT.
+MEDIA_URL = '/media/'
+# ######### END MEDIA CONFIGURATION
